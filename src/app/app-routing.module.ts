@@ -5,20 +5,18 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
-import { SigninComponent } from './home/signin/signin.component';
-import { AuthGuard } from './core/auth/auth.guard';
-import { SignUpComponent } from './home/signup/signup.component';
+
 
 const routes: Routes = [
     {
         path: '',
-        component: SigninComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'signup',
-        component: SignUpComponent,
+        pathMatch: 'full',
+        redirectTo: 'home'
     },    
+    {
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    },     
     {
         path: 'user/:userName',
         component: PhotoListComponent,
