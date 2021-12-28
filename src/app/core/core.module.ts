@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { RequestInterceptor } from "./auth/request.interceptor";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from './footer/footer.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        ReactiveFormsModule
     ],
     providers: [
         {
