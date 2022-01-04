@@ -23,7 +23,7 @@ export class PhotoDatailsComponent implements OnInit {
         private userService: UserService) {
 
     }
-    
+
     ngOnInit(): void { 
         this.photoId = this.route.snapshot.params.photoId;
         this.photo$ = this.photoService.findById(this.photoId);
@@ -45,4 +45,14 @@ export class PhotoDatailsComponent implements OnInit {
                 this.alertService.warning('Could not delete the photo!');
         });
     }
+ 
+    like(photo: Photo) {
+        this.photoService
+        .like(photo.id)
+        .subscribe(liked => {
+            if(liked) {
+                this.photo$ = this.photoService.findById(photo.id);
+            }
+        });
+    }    
 }
