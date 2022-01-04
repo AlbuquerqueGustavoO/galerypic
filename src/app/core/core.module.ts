@@ -6,6 +6,7 @@ import { RequestInterceptor } from "./auth/request.interceptor";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { AlertModule } from "../photos/shared/components/alert/alert.module";
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     imports: [
         CommonModule,
         RouterModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        AlertModule
     ],
     providers: [
         {
